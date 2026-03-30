@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/x-icon" href="assets/logo/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/logo/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/logo/android-chrome-512x512.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zenkai Media | Case Studies — Real Results for Real Brands</title>
+  <meta name="description"
+    content="Deep-dive case studies showing how Zenkai Media delivered 300%+ ROI for e-commerce brands, startups, and global companies." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .cta-section.alt {
+      padding: 6rem 1.5rem;
+      text-align: center;
+      background: #fff;
+      border-top: 1px solid var(--gray-mid);
+    }
+
+    /* label */
+    .cta-section.alt .cta-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+      margin-bottom: 1rem;
+    }
+
+    /* BIG TITLE (like homepage) */
+    .cta-section.alt .cta-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 2.8rem;
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+      margin-bottom: 2.5rem;
+    }
+
+    /* button */
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+    }
+
+    .cta-section.alt .btn-primary {
+      width: 100%;
+      max-width: 320px;
+      padding: 1rem;
+    }
+
+    /* desktop */
+    @media (min-width: 768px) {
+
+      .cta-section.alt {
+        padding: 8rem 4rem;
+      }
+
+      .cta-section.alt .cta-title {
+        font-size: clamp(3.5rem, 6vw, 6rem);
+      }
+
+      .cta-section.alt .btn-primary {
+        width: auto;
+        padding: 1rem 2rem;
+      }
+
+    }
+
+    .featured-case {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border: 1px solid var(--gray-mid);
+      margin-bottom: 2px;
+    }
+
+    .featured-case-visual {
+      background: var(--black);
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .featured-case-content {
+      padding: 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .case-tag {
+      display: inline-block;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--gray-mid);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .case-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+    }
+
+    .csm-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .csm-item {
+      border-left: 2px solid var(--black);
+      padding-left: 1rem;
+    }
+
+    .csm-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .csm-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-dark);
+      margin-top: 0.25rem;
+    }
+
+    .challenge-solution {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      margin: 2rem 0;
+    }
+
+    .cs-block {
+      padding: 3rem;
+      background: var(--gray-light);
+    }
+
+    .cs-block-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+      margin-bottom: 1rem;
+    }
+
+    .cs-block-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .cs-block-body {
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+      line-height: 1.7;
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 2rem;
+    }
+
+    .case-card {
+      border: 1px solid var(--gray-mid);
+      overflow: hidden;
+      transition: border-color var(--transition);
+    }
+
+    .case-card:hover {
+      border-color: var(--black);
+    }
+
+    .case-card-visual {
+      height: 280px;
+      overflow: hidden;
+      background: var(--gray-light);
+    }
+
+    .case-card-visual svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .case-card-body {
+      padding: 3rem;
+    }
+
+    .case-client {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .case-name {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .case-results {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .case-result-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.5rem;
+    }
+
+    .case-result-label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-dark);
+    }
+
+    @media (max-width: 768px) {
+      .featured-case {
+        grid-template-columns: 1fr;
+      }
+
+      .featured-case-visual {
+        min-height: 300px;
+      }
+
+      .featured-case-content {
+        padding: 2.5rem;
+      }
+
+      .csm-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .challenge-solution {
+        grid-template-columns: 1fr;
+      }
+
+      .cases-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo-text">
+      <img src="assets/logo/logo2.png" alt="ZENKAI Logo" style="height: 40px;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="nav-cta" data-modal="audit">FREE AUDIT</a></li>
+    </ul>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <nav class="nav-mobile">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a>
+    <a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Blog</a><a
+      href="contact.html">Contact</a>
+  </nav>
+
+  <header class="page-hero">
+    <p class="page-hero-label reveal">Proof of work</p>
+    <h1 class="page-hero-title reveal reveal-delay-1">Case<br>Studies</h1>
+    <p class="page-hero-sub reveal reveal-delay-2">Numbers don't lie. Here's exactly what we delivered — and how we did
+      it.</p>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <p class="section-label reveal">Featured Case</p>
+
+      <div class="featured-case reveal reveal-delay-1">
+        <div class="featured-case-visual">
+          <svg viewBox="0 0 700 600" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect fill="#0a0a0a" width="700" height="600" />
+            <rect x="0" y="0" width="350" height="600" fill="#111" />
+            <text x="175" y="270" font-family="sans-serif" font-size="80" font-weight="900" fill="#1e1e1e"
+              text-anchor="middle">L</text>
+            <text x="175" y="340" font-family="sans-serif" font-size="14" fill="#2a2a2a" text-anchor="middle"
+              letter-spacing="8">LUXE</text>
+            <rect x="380" y="100" width="280" height="400" fill="#161616" stroke="#222" stroke-width="1" />
+            <rect x="410" y="130" width="100" height="160" fill="#1e1e1e" />
+            <rect x="530" y="180" width="100" height="120" fill="#1a1a1a" />
+            <rect x="410" y="320" width="220" height="60" fill="#222" />
+            <text x="520" y="357" font-family="sans-serif" font-size="10" fill="#333" text-anchor="middle"
+              letter-spacing="4">APPAREL CO.</text>
+          </svg>
+        </div>
+        <div class="featured-case-content">
+          <div class="case-tag">E-Commerce · Fashion</div>
+          <h2 class="case-title">How Luxe Apparel went from $200k to $1.2M revenue in 6 months</h2>
+          <div class="csm-grid">
+            <div class="csm-item">
+              <div class="csm-num">+340%</div>
+              <div class="csm-label">Revenue growth</div>
+            </div>
+            <div class="csm-item">
+              <div class="csm-num">8.2x</div>
+              <div class="csm-label">ROAS</div>
+            </div>
+            <div class="csm-item">
+              <div class="csm-num">2.1M</div>
+              <div class="csm-label">Reach</div>
+            </div>
+          </div>
+          <p style="color:var(--gray-dark); line-height:1.8; font-size:0.95rem; margin-bottom:2rem;">Luxe Apparel was
+            spending $30k/mo on ads with a 1.8x ROAS and declining sales. We rebuilt their entire funnel — from creative
+            strategy to landing page CRO — and turned their ad spend into a scalable revenue engine.</p>
+          <a href="case-studies/luxe-apparel.html" class="btn-primary">READ FULL CASE STUDY</a>
+        </div>
+      </div>
+
+      <!-- Challenge / Solution / Results -->
+      <div class="challenge-solution reveal">
+        <div class="cs-block">
+          <div class="cs-block-label">Challenge</div>
+          <div class="cs-block-title">Bleeding budget, shrinking margins</div>
+          <p class="cs-block-body">Luxe was running generic ad creatives with no clear audience segmentation. Their
+            landing pages converted at 0.8%, and their best-sellers were buried behind underperforming collections.</p>
+        </div>
+        <div class="cs-block" style="background:var(--black); color:var(--white);">
+          <div class="cs-block-label" style="color:rgba(255,255,255,0.4);">Solution</div>
+          <div class="cs-block-title">Full-funnel rebuild</div>
+          <p class="cs-block-body" style="color:rgba(255,255,255,0.6);">We restructured their Meta campaigns into 3
+            distinct funnel stages, produced 24 new ad creatives, rebuilt their PDPs, and added a post-purchase flow
+            that recovered 18% of abandoned carts.</p>
+        </div>
+        <div class="cs-block">
+          <div class="cs-block-label">Results</div>
+          <div class="cs-block-title">$1M+ in new revenue</div>
+          <p class="cs-block-body">Month 1: ROAS climbed from 1.8x to 4.2x. Month 3: Revenue hit $600k. Month 6: $1.2M
+            with a ROAS of 8.2x — and still scaling.</p>
+        </div>
+      </div>
+
+      <!-- More Cases -->
+      <h2 class="section-title reveal" style="margin-top:6rem;">More results</h2>
+      <div class="cases-grid">
+
+        <div class="case-card reveal">
+          <div class="case-card-visual">
+            <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+              <rect fill="#0d0d0d" width="700" height="280" />
+              <circle cx="350" cy="140" r="110" fill="none" stroke="#1e1e1e" stroke-width="1.5" />
+              <text x="350" y="130" font-family="sans-serif" font-size="40" font-weight="900" fill="#1e1e1e"
+                text-anchor="middle">NOVA</text>
+              <text x="350" y="158" font-family="sans-serif" font-size="9" fill="#2a2a2a" text-anchor="middle"
+                letter-spacing="8">TECH</text>
+            </svg>
+          </div>
+          <div class="case-card-body">
+            <div class="case-client">SaaS · Startup</div>
+            <div class="case-name">Nova Tech Labs</div>
+            <div class="case-results">
+              <div class="case-result-item">
+                <div class="case-result-num">+280%</div>
+                <div class="case-result-label">MRR growth</div>
+              </div>
+              <div class="case-result-item">
+                <div class="case-result-num">-45%</div>
+                <div class="case-result-label">CAC reduction</div>
+              </div>
+              <div class="case-result-item">
+                <div class="case-result-num">90d</div>
+                <div class="case-result-label">Timeline</div>
+              </div>
+            </div>
+            <a href="case-studies/nova-tech-labs.html" class="btn-outline"
+              style="font-size:0.75rem; padding:0.65rem 1.5rem;">READ CASE →</a>
+          </div>
+        </div>
+
+        <div class="case-card reveal reveal-delay-1">
+          <div class="case-card-visual">
+            <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+              <rect fill="#141414" width="700" height="280" />
+              <polygon points="350,30 560,250 140,250" fill="none" stroke="#222" stroke-width="1.5" />
+              <text x="350" y="195" font-family="sans-serif" font-size="36" font-weight="900" fill="#222"
+                text-anchor="middle">PEAK</text>
+            </svg>
+          </div>
+          <div class="case-card-body">
+            <div class="case-client">Health · DTC</div>
+            <div class="case-name">Peak Fitness</div>
+            <div class="case-results">
+              <div class="case-result-item">
+                <div class="case-result-num">+190%</div>
+                <div class="case-result-label">Revenue</div>
+              </div>
+              <div class="case-result-item">
+                <div class="case-result-num">500k</div>
+                <div class="case-result-label">New customers</div>
+              </div>
+              <div class="case-result-item">
+                <div class="case-result-num">6.1x</div>
+                <div class="case-result-label">ROAS</div>
+              </div>
+            </div>
+            <a href="case-studies/peak-fitness.html" class="btn-outline"
+              style="font-size:0.75rem; padding:0.65rem 1.5rem;">READ CASE →</a>
+          </div>
+        </div>
+
+        <div class="case-card reveal">
+          <div class="case-card-visual">
+            <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+              <rect fill="#111" width="700" height="280" />
+              <rect x="100" y="40" width="200" height="200" fill="#1a1a1a" />
+              <rect x="400" y="80" width="200" height="120" fill="#161616" />
+              <text x="350" y="255" font-family="sans-serif" font-size="14" fill="#222" text-anchor="middle"
+                letter-spacing="6">ARKO FOODS</text>
+            </svg>
+          </div>
+          <div class="case-card-body">
+            <div class="case-client">F&amp;B · Consumer</div>
+            <div class="case-name">Arko Foods</div>
+            <div class="case-results">
+              <div class="case-result-item">
+                <div class="case-result-num">300k</div>
+                <div class="case-result-label">Followers/60d</div>
+              </div>
+              <div class="case-result-item">
+                <div class="case-result-num">4.2M</div>
+                <div class="case-result-label">Impressions</div>
+              </div>
+              <div class="case-result-item">
+                <div class="case-result-num">12%</div>
+                <div class="case-result-label">Engagement rate</div>
+              </div>
+            </div>
+            <a href="case-studies/arko-foods.html" class="btn-outline"
+              style="font-size:0.75rem; padding:0.65rem 1.5rem;">READ CASE →</a>
+          </div>
+        </div>
+
+        <div class="case-card reveal reveal-delay-1">
+          <div class="case-card-visual">
+            <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
+              <rect fill="#0a0a0a" width="700" height="280" />
+              <line x1="0" y1="140" x2="700" y2="140" stroke="#1a1a1a" stroke-width="1" />
+              <text x="350" y="128" font-family="sans-serif" font-size="48" font-weight="900" fill="#1e1e1e"
+                text-anchor="middle">VERTO</text>
+              <text x="350" y="160" font-family="sans-serif" font-size="9" fill="#252525" text-anchor="middle"
+                letter-spacing="10">FINANCE</text>
+            </svg>
+          </div>
+          <div class="case-card-body">
+            <div class="case-client">Fintech · Startup</div>
+            <div class="case-name">Verto Finance</div>
+            <div class="case-results">
+              <div class="case-result-item">
+                <div class="case-result-num">2.3M</div>
+                <div class="case-result-label">Impressions</div>
+              </div>
+              <div class="case-result-item">
+                <div class="case-result-num">4.8%</div>
+                <div class="case-result-label">CTR</div>
+              </div>
+              <div class="case-result-item">
+                <div class="case-result-num">8k</div>
+                <div class="case-result-label">Signups/mo</div>
+              </div>
+            </div>
+            <a href="case-studies/verto-finance.html" class="btn-outline"
+              style="font-size:0.75rem; padding:0.65rem 1.5rem;">READ CASE →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section alt">
+
+    <p class="cta-label">Your turn</p>
+
+    <h2 class="cta-title">
+      Ready to be<br>a case study?
+    </h2>
+
+    <div class="cta-buttons">
+      <button class="btn-primary" data-modal="audit">
+        GET FREE AUDIT
+      </button>
+    </div>
+
+  </section>
+
+  <div id="footer"></div>
+  <a href="https://wa.me/919016792014" target="_blank" class="whatsapp-sticky" aria-label="WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+  <div class="modal-overlay" id="auditModal">
+    <div class="modal"><button class="modal-close">✕</button>
+      <h2 class="modal-title">Free Brand Audit</h2>
+      <p class="modal-sub">30 minutes. Zero cost. Maximum value.</p>
+      <form onsubmit="handleSimpleAudit(event)">
+        <input type="text" id="simpleAuditName" class="form-input" placeholder="Your Name *" required />
+        <input type="email" id="simpleAuditEmail" class="form-input" placeholder="Business Email *" required />
+        <input type="tel" id="auditPhone" class="form-input" placeholder="Phone / WhatsApp (optional)">
+        <button type="submit" class="btn-primary" style="width:100%;">CLAIM YOUR FREE AUDIT</button>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

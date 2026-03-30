@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/x-icon" href="assets/logo/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/logo/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/logo/android-chrome-512x512.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zenkai Media | Contact — Start Your Brand Transformation</title>
+  <meta name="description"
+    content="Ready to scale your brand? Contact Zenkai Media for a free strategy consultation. WhatsApp, email, or fill out our form — we respond within 24 hours." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 80vh;
+    }
+
+    .contact-info {
+      padding: 6rem 5rem;
+      border-right: 1px solid var(--gray-mid);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-form-col {
+      padding: 6rem 5rem;
+    }
+
+    .contact-info-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.05;
+      margin-bottom: 2rem;
+    }
+
+    .contact-info-desc {
+      color: var(--gray-dark);
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      font-size: 1rem;
+    }
+
+    .contact-channels {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-channel {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      padding: 1.5rem;
+      border: 1px solid var(--gray-mid);
+      text-decoration: none;
+      color: var(--black);
+      transition: background var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .contact-channel:hover {
+      background: var(--black);
+      color: var(--white);
+      border-color: var(--black);
+    }
+
+    .contact-channel:hover .channel-icon {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .channel-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--gray-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: background var(--transition-fast);
+      flex-shrink: 0;
+    }
+
+    .channel-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0.5;
+      display: block;
+      margin-bottom: 0.15rem;
+    }
+
+    .channel-value {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .contact-guarantees {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .guarantee {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.8rem;
+      color: var(--gray-dark);
+    }
+
+    .guarantee::before {
+      content: '✓';
+      font-weight: 900;
+      color: var(--black);
+    }
+
+    .step-indicators {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .step-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--gray-mid);
+      border-radius: 50%;
+      transition: background var(--transition-fast), width var(--transition-fast);
+    }
+
+    .step-dot.active {
+      background: var(--black);
+      width: 24px;
+      border-radius: 4px;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.active {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .step-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-sub {
+      color: var(--gray-dark);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .form-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 0.5rem;
+    }
+
+    .btn-back {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--gray-dark);
+      transition: color var(--transition-fast);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .btn-back:hover {
+      color: var(--black);
+    }
+
+    .step-progress {
+      font-size: 0.75rem;
+      color: var(--gray-dark);
+      letter-spacing: 0.1em;
+    }
+
+    .success-state {
+      display: none;
+      text-align: center;
+      padding: 4rem 2rem;
+    }
+
+    .success-state.show {
+      display: block;
+    }
+
+    .success-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .success-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .success-msg {
+      color: var(--gray-dark);
+      line-height: 1.7;
+    }
+
+    select.form-input {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23000' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+    }
+
+    @media (max-width: 1024px) {
+      .contact-info {
+        padding: 4rem 3rem;
+      }
+
+      .contact-form-col {
+        padding: 4rem 3rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info {
+        border-right: none;
+        border-bottom: 1px solid var(--gray-mid);
+        padding: 3rem 1.5rem;
+      }
+
+      .contact-form-col {
+        padding: 3rem 1.5rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo-text">
+      <img src="assets/logo/logo2.png" alt="ZENKAI Logo" style="height: 40px;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="nav-cta" data-modal="audit">FREE AUDIT</a></li>
+    </ul>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <nav class="nav-mobile">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a>
+    <a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Blog</a><a
+      href="contact.html">Contact</a>
+  </nav>
+
+  <header class="page-hero">
+    <p class="page-hero-label reveal">Let's talk</p>
+    <h1 class="page-hero-title reveal reveal-delay-1">Ready<br>to Scale?</h1>
+    <p class="page-hero-sub reveal reveal-delay-2">Tell us about your brand. We'll tell you exactly how we'd grow it.
+    </p>
+  </header>
+
+  <div class="contact-layout">
+    <!-- Left: Info -->
+    <div class="contact-info reveal">
+      <div>
+        <h2 class="contact-info-title">Start the<br>conversation</h2>
+        <p class="contact-info-desc">We work with a limited number of brands at a time to ensure every client gets our
+          full attention. If you're serious about scaling, we want to hear from you.</p>
+        <div class="contact-channels">
+          <a href="https://wa.me/919016792014" target="_blank" class="contact-channel">
+            <div class="channel-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+              </svg>
+            </div>
+            <div class="channel-info">
+              <span class="channel-label">WhatsApp</span>
+              <span class="channel-value">+91 9016792014</span>
+            </div>
+          </a>
+          <a href="mailto:workwithzenkai@gmail.com" class="contact-channel">
+            <div class="channel-icon">✉</div>
+            <div class="channel-info">
+              <span class="channel-label">Email</span>
+              <span class="channel-value">workwithzenkai@gmail.com</span>
+            </div>
+          </a>
+          <div class="contact-channel" style="cursor:default;">
+            <div class="channel-icon">🕐</div>
+            <div class="channel-info">
+              <span class="channel-label">Response time</span>
+              <span class="channel-value">Within 24 hours</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-guarantees">
+        <div class="guarantee">Free consultation</div>
+        <div class="guarantee">No long-term lock-in</div>
+        <div class="guarantee">Results-based pricing available</div>
+        <div class="guarantee">Dedicated account manager</div>
+      </div>
+    </div>
+
+    <!-- Right: Multi-step form -->
+    <div class="contact-form-col">
+      <div id="formContainer">
+        <div class="step-indicators">
+          <div class="step-dot active"></div>
+          <div class="step-dot"></div>
+          <div class="step-dot"></div>
+        </div>
+        <form id="contactForm" novalidate>
+          <!-- Step 1 -->
+          <div class="form-step active" id="step0">
+            <div class="step-title">Your details</div>
+            <p class="step-sub">Tell us who you are and about your business.</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-input" id="firstName" placeholder="Alex" required />
+              </div>
+              <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-input" id="lastName" placeholder="Smith" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Business Email</label>
+              <input type="email" class="form-input" id="email" placeholder="alex@yourbrand.com" required />
+            </div>
+            <div class="form-group">
+              <label>Phone / WhatsApp (optional)</label>
+              <input type="tel" class="form-input" id="phone" placeholder="+91 90167 92014">
+              <small>Include country code if outside India</small>
+            </div>
+            <div class="form-group">
+              <label>Company / Brand Name</label>
+              <input type="text" class="form-input" id="company" placeholder="Your Brand Co." required />
+            </div>
+            <div class="form-group">
+              <label>Website</label>
+              <input type="url" class="form-input" id="website" placeholder="https://yourbrand.com" />
+            </div>
+            <div class="form-nav">
+              <div class="step-progress">Step 1 of 3</div>
+              <button type="button" class="btn-primary" onclick="nextStep(0)">NEXT →</button>
+            </div>
+          </div>
+          <!-- Step 2 -->
+          <div class="form-step" id="step1">
+            <div class="step-title">Your goals</div>
+            <p class="step-sub">Help us understand what you're trying to achieve.</p>
+            <div class="form-group">
+              <label>What service are you interested in?</label>
+              <select class="form-input" id="service">
+                <option value="">Select a service</option>
+                <option>Social Media Advertising</option>
+                <option>Content Creation</option>
+                <option>Branding & Design</option>
+                <option>Full-Service Partnership</option>
+                <option>Not sure — help me figure it out</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Monthly Marketing Budget</label>
+              <select class="form-input" id="budget">
+                <option value="">Select budget range</option>
+                <option>Under $5,000/mo</option>
+                <option>$5,000 – $20,000/mo</option>
+                <option>$20,000 – $100,000/mo</option>
+                <option>$100,000+/mo</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>What's your biggest marketing challenge right now?</label>
+              <textarea class="form-input" id="challenge" placeholder="Tell us where you're stuck..."
+                rows="4"></textarea>
+            </div>
+            <div class="form-group">
+              <label>What does success look like in 6 months?</label>
+              <input type="text" class="form-input" id="success" placeholder="e.g. $500k/mo revenue, 5x ROAS..." />
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn-back" onclick="prevStep(1)">← BACK</button>
+              <div class="step-progress">Step 2 of 3</div>
+              <button type="button" class="btn-primary" onclick="nextStep(1)">NEXT →</button>
+            </div>
+          </div>
+          <!-- Step 3 -->
+          <div class="form-step" id="step2">
+            <div class="step-title">One last thing</div>
+            <p class="step-sub">How did you hear about us, and when works best to talk?</p>
+            <div class="form-group">
+              <label>How did you find Zenkai Media?</label>
+              <select class="form-input" id="source">
+                <option value="">Select an option</option>
+                <option>Google / Search</option>
+                <option>Instagram</option>
+                <option>LinkedIn</option>
+                <option>Referral from someone I know</option>
+                <option>Case study / Blog post</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Preferred call time (your timezone)</label>
+              <select class="form-input" id="calltime">
+                <option value="">Select a time</option>
+                <option>Morning (9am – 12pm)</option>
+                <option>Afternoon (12pm – 5pm)</option>
+                <option>Evening (5pm – 8pm)</option>
+                <option>Flexible — anytime works</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Anything else you'd like us to know?</label>
+              <textarea class="form-input" id="notes" placeholder="Additional context..." rows="4"></textarea>
+            </div>
+            <div class="form-nav">
+              <button type="button" class="btn-back" onclick="prevStep(2)">← BACK</button>
+              <div class="step-progress">Step 3 of 3</div>
+              <button type="submit" class="btn-primary" id="submitBtn">SEND →</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- Success state -->
+      <div class="success-state" id="successState">
+        <div class="success-icon">✓</div>
+        <h2 class="success-title">Message received.</h2>
+        <p class="success-msg">We've got your details and will be in touch within 24 hours. Message us on WhatsApp if
+          you'd like to talk sooner.</p>
+        <div style="margin-top:2rem; display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+          <a href="https://wa.me/919016792014" target="_blank" class="btn-primary">WHATSAPP US</a>
+          <a href="index.html" class="btn-outline">BACK TO HOME</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Map placeholder -->
+  <div
+    style="height:300px; background:var(--gray-light); display:flex; align-items:center; justify-content:center; border-top:1px solid var(--gray-mid);">
+    <div style="text-align:center;">
+      <p style="font-family:var(--font-display); font-weight:900; font-size:1.2rem; margin-bottom:0.5rem;">Worldwide —
+        Remote-first</p>
+      <p style="color:var(--gray-dark); font-size:0.9rem;">We work with brands across every timezone</p>
+    </div>
+  </div>
+
+  <div id="footer"></div>
+
+  <a href="https://wa.me/919016792014" target="_blank" class="whatsapp-sticky" aria-label="WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <div class="modal-overlay" id="auditModal">
+    <div class="modal">
+      <button class="modal-close">✕</button>
+      <h2 class="modal-title">Free Brand Audit</h2>
+      <p class="modal-sub">30 minutes. Zero cost. Maximum value.</p>
+      <form onsubmit="handleSimpleAudit(event)">
+        <input type="text" id="simpleAuditName" class="form-input" placeholder="Your Name *" required />
+        <input type="email" id="simpleAuditEmail" class="form-input" placeholder="Business Email *" required />
+        <input type="tel" id="simpleAuditPhone" class="form-input" placeholder="Phone / WhatsApp (optional)">
+        <button type="submit" class="btn-primary" style="width:100%;">CLAIM YOUR FREE AUDIT</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var SHEET_URL = 'https://script.google.com/macros/s/AKfycbwMMlqxKdGH9uCu9EX47DxWl7hUJ5lYH0fbg9XQYdfD0EM2pXN7rqorAYzNy8UOFtWS/exec';
+      var currentStep = 0;
+
+      function updateDots(step) {
+        document.querySelectorAll('.step-dot').forEach(function (d, i) {
+          d.classList.toggle('active', i === step);
+        });
+      }
+
+      function showStep(index) {
+        document.querySelectorAll('.form-step').forEach(function (s) { s.classList.remove('active'); });
+        document.getElementById('step' + index).classList.add('active');
+        currentStep = index;
+        updateDots(index);
+      }
+
+      window.nextStep = function (from) {
+        // Validate required fields in current step
+        var step = document.getElementById('step' + from);
+        var required = step.querySelectorAll('input[required], select[required]');
+        var valid = true;
+        required.forEach(function (el) {
+          if (!el.value.trim()) {
+            el.style.borderColor = 'red';
+            el.style.boxShadow = '0 0 0 2px rgba(255,0,0,0.15)';
+            setTimeout(function () { el.style.borderColor = ''; el.style.boxShadow = ''; }, 2500);
+            valid = false;
+          }
+        });
+        if (!valid) return;
+        showStep(from + 1);
+        document.querySelector('.contact-form-col').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
+      window.prevStep = function (from) {
+        showStep(from - 1);
+        document.querySelector('.contact-form-col').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      };
+
+      // Submit handler
+      var form = document.getElementById('contactForm');
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          var btn = document.getElementById('submitBtn');
+          btn.textContent = 'SENDING...';
+          btn.disabled = true;
+
+          function g(id) { var el = document.getElementById(id); return el ? el.value.trim() : ''; }
+
+          var params = new URLSearchParams();
+          params.append('formType', 'Contact Form');
+          params.append('Name', (g('firstName') + ' ' + g('lastName')).trim());
+          params.append('Email', g('email'));
+          params.append('Phone',     g('phone'));
+          params.append('Company', g('company'));
+          params.append('Service', g('service'));
+          params.append('Budget', g('budget'));
+          params.append('Challenge', g('challenge'));
+          params.append('Goals', g('success'));
+          params.append('Source', g('source'));
+          params.append('Call Time', g('calltime'));
+          params.append('Notes', g('notes'));
+
+          fetch(SHEET_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: params.toString()
+          }).finally(function () {
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('successState').classList.add('show');
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+
+</html>

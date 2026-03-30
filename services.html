@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/x-icon" href="assets/logo/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/logo/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/logo/android-chrome-512x512.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zenkai Media | Services — Social Ads, Content, Branding</title>
+  <meta name="description"
+    content="Zenkai Media offers premium social media advertising, content creation, and branding services for startups, e-commerce, and global brands." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .cta-section.alt {
+      padding: 6rem 1.5rem;
+      text-align: center;
+      background: #fff;
+      border-top: 1px solid var(--gray-mid);
+    }
+
+    .cta-section.alt .cta-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section.alt .cta-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 2.4rem;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+    }
+
+    .cta-section.alt .btn-primary {
+      width: 100%;
+      padding: 1rem;
+    }
+
+    @media (min-width: 768px) {
+      .cta-section.alt {
+        padding: 8rem 4rem;
+      }
+
+      .cta-section.alt .cta-title {
+        font-size: clamp(3rem, 6vw, 5rem);
+      }
+
+      .cta-section.alt .btn-primary {
+        width: auto;
+        padding: 1rem 2rem;
+      }
+    }
+
+    .tabs-wrapper {
+      margin-top: 5rem;
+    }
+
+    .tab-nav {
+      display: flex;
+      border-bottom: 1px solid var(--gray-mid);
+      margin-bottom: 0;
+    }
+
+    .tab-btn {
+      padding: 1.5rem 3rem;
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      color: var(--gray-dark);
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color var(--transition-fast), border-color var(--transition-fast);
+    }
+
+    .tab-btn.active {
+      color: var(--black);
+      border-bottom-color: var(--black);
+    }
+
+    .tab-panel {
+      display: none;
+      padding: 5rem 0;
+    }
+
+    .tab-panel.active {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .tab-stat {
+      display: flex;
+      gap: 4rem;
+      margin-bottom: 3rem;
+    }
+
+    .tab-stat-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 3rem;
+      line-height: 1;
+    }
+
+    .tab-stat-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gray-dark);
+      margin-top: 0.25rem;
+    }
+
+    .tab-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      margin-bottom: 1.5rem;
+      line-height: 1.0;
+    }
+
+    .tab-desc {
+      color: var(--gray-dark);
+      line-height: 1.8;
+      margin-bottom: 2.5rem;
+    }
+
+    .process-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .process-list li {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .process-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      color: var(--gray-dark);
+      min-width: 32px;
+      padding-top: 2px;
+    }
+
+    .process-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .process-text strong {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .pricing-card {
+      padding: 2.5rem;
+      border: 1px solid var(--gray-mid);
+      transition: border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .pricing-card:hover {
+      border-color: var(--black);
+      background: var(--gray-light);
+    }
+
+    .pricing-tier {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-price {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-desc {
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+      line-height: 1.6;
+    }
+
+    .tab-visual {
+      background: var(--gray-light);
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.5rem;
+      letter-spacing: 0.1em;
+      color: var(--gray-mid);
+      position: sticky;
+      top: 8rem;
+    }
+
+    .cta-band {
+      background: var(--black);
+      color: var(--white);
+      padding: 8rem 4rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .tab-panel.active {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .tab-btn {
+        padding: 1rem 1.5rem;
+        font-size: 0.75rem;
+      }
+
+      .tab-visual {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo-text">
+      <img src="assets/logo/logo2.png" alt="ZENKAI Logo" style="height: 40px;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="nav-cta" data-modal="audit">FREE AUDIT</a></li>
+    </ul>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <nav class="nav-mobile">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a>
+    <a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Blog</a><a
+      href="contact.html">Contact</a>
+  </nav>
+
+  <header class="page-hero">
+    <p class="page-hero-label reveal">What We Offer</p>
+    <h1 class="page-hero-title reveal reveal-delay-1">Scale<br>Your Brand</h1>
+    <p class="page-hero-sub reveal reveal-delay-2">Three service pillars, one mission — building brands that dominate
+      their market and generate compounding returns.</p>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="tabs-wrapper">
+        <div class="tab-nav">
+          <button class="tab-btn active" data-tab="ads">Social Ads</button>
+          <button class="tab-btn" data-tab="content">Content</button>
+          <button class="tab-btn" data-tab="branding">Branding</button>
+        </div>
+
+        <!-- Social Ads -->
+        <div class="tab-panel active" id="tab-ads">
+          <div>
+            <div class="tab-stat reveal">
+              <div>
+                <div class="tab-stat-num" data-target="400" data-suffix="%">0%</div>
+                <div class="tab-stat-label">Avg ROAS</div>
+              </div>
+              <div>
+                <div class="tab-stat-num" data-target="48" data-suffix="h">0h</div>
+                <div class="tab-stat-label">Launch time</div>
+              </div>
+            </div>
+            <h2 class="tab-title reveal">Performance<br>advertising<br>that converts</h2>
+            <p class="tab-desc reveal">Meta, TikTok, Google, LinkedIn — we run multi-platform ad campaigns that reach
+              the right people at exactly the right moment. Data-driven, creative-first, always profitable.</p>
+            <ul class="process-list reveal">
+              <li><span class="process-num">01</span>
+                <div class="process-text"><strong>Audit & Strategy</strong>Analyse your current funnel, competitors, and
+                  audience to build a custom media plan.</div>
+              </li>
+              <li><span class="process-num">02</span>
+                <div class="process-text"><strong>Creative Production</strong>High-converting ad creatives — static,
+                  video, UGC — built for each platform's algorithm.</div>
+              </li>
+              <li><span class="process-num">03</span>
+                <div class="process-text"><strong>Launch & Optimise</strong>We launch, A/B test, and iterate weekly
+                  until we find your winning formula.</div>
+              </li>
+              <li><span class="process-num">04</span>
+                <div class="process-text"><strong>Scale & Report</strong>Once we find what works, we scale aggressively.
+                  Full transparency dashboards weekly.</div>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn-primary">BOOK CONSULTATION</a>
+          </div>
+          <div>
+            <div class="pricing-cards reveal reveal-delay-1">
+              <div class="pricing-card">
+                <div class="pricing-tier">Starter</div>
+                <div class="pricing-price price" data-usd="3500" data-inr="290000">₹2,90,000<span
+                    style="font-size:1rem;font-weight:400;">/mo</span></div>
+                <p class="pricing-desc">1 platform · up to $15k ad spend · Monthly reporting · 4 creatives/mo</p>
+              </div>
+              <div class="pricing-card">
+                <div class="pricing-tier">Growth</div>
+                <div class="pricing-price price" data-usd="8000" data-inr="660000">₹6,60,000<span
+                    style="font-size:1rem;font-weight:400;">/mo</span></div>
+                <p class="pricing-desc">3 platforms · up to $80k ad spend · Weekly reporting · 12 creatives/mo</p>
+              </div>
+              <div class="pricing-card">
+                <div class="pricing-tier">Enterprise</div>
+                <div class="pricing-price">Custom</div>
+                <p class="pricing-desc">Unlimited platforms · unlimited spend · Dedicated team · Unlimited creatives</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="tab-panel" id="tab-content">
+          <div>
+            <div class="tab-stat reveal">
+              <div>
+                <div class="tab-stat-num" data-target="10" data-suffix="x">0x</div>
+                <div class="tab-stat-label">Engagement lift</div>
+              </div>
+              <div>
+                <div class="tab-stat-num" data-target="30" data-suffix="+">0+</div>
+                <div class="tab-stat-label">Formats mastered</div>
+              </div>
+            </div>
+            <h2 class="tab-title reveal">Content that<br>stops the<br>scroll</h2>
+            <p class="tab-desc reveal">From short-form video to editorial photography, we produce content at scale that
+              keeps your brand relevant, consistent, and impossible to ignore across every channel.</p>
+            <ul class="process-list reveal">
+              <li><span class="process-num">01</span>
+                <div class="process-text"><strong>Content Strategy</strong>Monthly content calendar aligned to your
+                  sales cycles, trends, and platform algorithms.</div>
+              </li>
+              <li><span class="process-num">02</span>
+                <div class="process-text"><strong>Production</strong>In-house video, photography, design, and
+                  copywriting — all under one roof.</div>
+              </li>
+              <li><span class="process-num">03</span>
+                <div class="process-text"><strong>Distribution</strong>Platform-optimised posting schedules, community
+                  management, and influencer amplification.</div>
+              </li>
+              <li><span class="process-num">04</span>
+                <div class="process-text"><strong>Analytics</strong>Content performance tracking with actionable
+                  insights every week.</div>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn-primary">BOOK CONSULTATION</a>
+          </div>
+          <div>
+            <div class="pricing-cards reveal reveal-delay-1">
+              <div class="pricing-card">
+                <div class="pricing-tier">Essential</div>
+                <div class="pricing-price price" data-usd="2500" data-inr="207000">₹2,07,000<span
+                    style="font-size:1rem;font-weight:400;">/mo</span></div>
+                <p class="pricing-desc">8 posts/mo · 2 short-form videos · Graphics & copy · 1 platform</p>
+              </div>
+              <div class="pricing-card">
+                <div class="pricing-tier">Pro</div>
+                <div class="pricing-price price" data-usd="6000" data-inr="495000">₹4,95,000<span
+                    style="font-size:1rem;font-weight:400;">/mo</span></div>
+                <p class="pricing-desc">24 posts/mo · 8 videos · Full design suite · 3 platforms + community</p>
+              </div>
+              <div class="pricing-card">
+                <div class="pricing-tier">Studio</div>
+                <div class="pricing-price">Custom</div>
+                <p class="pricing-desc">Dedicated content team · On-site shoots · Full brand content ecosystem</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branding -->
+        <div class="tab-panel" id="tab-branding">
+          <div>
+            <div class="tab-stat reveal">
+              <div>
+                <div class="tab-stat-num" data-target="72" data-suffix="%">0%</div>
+                <div class="tab-stat-label">Brand recall lift</div>
+              </div>
+              <div>
+                <div class="tab-stat-num" data-target="3" data-suffix="wk">0wk</div>
+                <div class="tab-stat-label">Delivery</div>
+              </div>
+            </div>
+            <h2 class="tab-title reveal">Identities built<br>for dominance</h2>
+            <p class="tab-desc reveal">We don't design logos — we engineer brand systems. Strategy-led,
+              market-researched visual identities that position you above every competitor in your category.</p>
+            <ul class="process-list reveal">
+              <li><span class="process-num">01</span>
+                <div class="process-text"><strong>Brand Discovery</strong>Deep dive into your market, competitors,
+                  audience, and ambitions.</div>
+              </li>
+              <li><span class="process-num">02</span>
+                <div class="process-text"><strong>Strategy & Positioning</strong>Brand DNA, tone of voice, positioning
+                  statement, and messaging framework.</div>
+              </li>
+              <li><span class="process-num">03</span>
+                <div class="process-text"><strong>Visual Identity</strong>Logo system, colour palette, typography,
+                  iconography, and brand guidelines.</div>
+              </li>
+              <li><span class="process-num">04</span>
+                <div class="process-text"><strong>Rollout & Support</strong>Template library, asset delivery, and 30-day
+                  implementation support.</div>
+              </li>
+            </ul>
+            <a href="contact.html" class="btn-primary">BOOK CONSULTATION</a>
+          </div>
+          <div>
+            <div class="pricing-cards reveal reveal-delay-1">
+              <div class="pricing-card">
+                <div class="pricing-tier">Identity</div>
+                <div class="pricing-price price" data-usd="5000" data-inr="415000">₹4,15,000<span
+                    style="font-size:1rem;font-weight:400;"> once</span></div>
+                <p class="pricing-desc">Logo system · Colour & type · Brand guidelines doc · Social kit</p>
+              </div>
+              <div class="pricing-card">
+                <div class="pricing-tier">Full Brand</div>
+                <div class="pricing-price price" data-usd="15000" data-inr="1240000">₹12,40,000<span
+                    style="font-size:1rem;font-weight:400;"> once</span></div>
+                <p class="pricing-desc">Full identity · Website design · Packaging · Campaign templates · Print</p>
+              </div>
+              <div class="pricing-card">
+                <div class="pricing-tier">Brand Overhaul</div>
+                <div class="pricing-price">Custom</div>
+                <p class="pricing-desc">Full rebrand with strategy, identity, digital, and launch campaign</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section alt">
+
+    <p class="cta-label">Start today</p>
+
+    <h2 class="cta-title">
+      Not sure where to start?<br>
+      We'll tell you — free.
+    </h2>
+
+    <div class="cta-buttons">
+      <button class="btn-primary" data-modal="audit">
+        GET FREE AUDIT
+      </button>
+    </div>
+
+  </section>
+
+  <div id="footer"></div>
+
+  <a href="https://wa.me/919016792014" target="_blank" class="whatsapp-sticky" aria-label="WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <div class="modal-overlay" id="auditModal">
+    <div class="modal">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h2 class="modal-title">Free Brand Audit</h2>
+      <p class="modal-sub">30 minutes. Zero cost. Maximum value.</p>
+      <form onsubmit="handleServiceAudit(event)">
+        <input type="text" id="svcName" class="form-input" placeholder="Your Name *" required />
+        <input type="email" id="svcEmail" class="form-input" placeholder="Business Email *" required />
+        <input type="tel" id="svcPhone" class="form-input" placeholder="Phone / WhatsApp (optional)">
+        <select id="svcService" class="form-input" required>
+          <option value="">Service Interest *</option>
+          <option>Social Ads</option>
+          <option>Content</option>
+          <option>Branding</option>
+          <option>All Three</option>
+        </select>
+        <button type="submit" class="btn-primary" style="width:100%;">CLAIM YOUR FREE AUDIT</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+        // Re-observe reveals in new tab
+        document.querySelectorAll('.tab-panel.active .reveal:not(.visible)').forEach(el => {
+          setTimeout(() => el.classList.add('visible'), 100);
+        });
+      });
+    });
+
+    function openTabFromHash() {
+      const hash = window.location.hash.replace('#', '');
+
+      if (!hash) return;
+
+      const targetBtn = document.querySelector(`.tab-btn[data-tab="${hash}"]`);
+      const targetPanel = document.getElementById(`tab-${hash}`);
+
+      if (targetBtn && targetPanel) {
+        // remove active from all
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+
+        // activate selected
+        targetBtn.classList.add('active');
+        targetPanel.classList.add('active');
+        targetPanel.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+
+    window.addEventListener('load', openTabFromHash);
+
+  </script>
+</body>
+
+</html>

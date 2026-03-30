@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/x-icon" href="assets/logo/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/logo/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/logo/android-chrome-512x512.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zenkai Media | About — Premium Marketing Agency</title>
+  <meta name="description"
+    content="Meet the team behind Zenkai Media — the premium marketing agency helping ambitious brands dominate their market through data-driven creative campaigns." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .team-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* FIX TEAM ROLE MOBILE */
+    .role-mobile {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+
+      .role-desktop {
+        display: none;
+      }
+
+      .role-mobile {
+        display: block;
+        font-size: 0.7rem;
+        letter-spacing: 0.06em;
+        line-height: 1.4;
+      }
+
+    }
+
+    .team-card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      /* 👈 fills properly */
+      display: block;
+    }
+
+    .about-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8rem;
+      align-items: center;
+    }
+
+    .about-intro-text h2 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.05;
+      margin-bottom: 2rem;
+    }
+
+    .about-intro-text p {
+      color: var(--gray-dark);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-visual {
+      background: var(--black);
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 4rem;
+    }
+
+    .value-card {
+      padding: 3rem 2rem;
+      border: 1px solid var(--gray-mid);
+    }
+
+    .value-icon {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .value-name {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .value-desc {
+      color: var(--gray-dark);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      margin-top: 1rem;
+    }
+
+    .team-card {
+      overflow: hidden;
+      border: 1px solid var(--gray-mid);
+    }
+
+    .team-card-photo {
+      aspect-ratio: 3/4;
+      background: var(--gray-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .team-card-info {
+      padding: 1rem;
+    }
+
+    .team-name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    @media (max-width: 768px) {
+
+      .team-name {
+        font-size: 0.95rem;
+        /* slightly smaller */
+        white-space: nowrap;
+        /* 👈 FORCE one line */
+      }
+
+    }
+
+    .team-role {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gray-dark);
+    }
+
+    .process-timeline {
+      margin-top: 4rem;
+    }
+
+    .process-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 3rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--gray-mid);
+      align-items: start;
+    }
+
+    .process-step:first-child {
+      border-top: 1px solid var(--gray-mid);
+    }
+
+    .process-step-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 3.5rem;
+      color: var(--gray-light);
+      line-height: 1;
+    }
+
+    .process-step-title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .process-step-desc {
+      color: var(--gray-dark);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .clients-carousel {
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+
+    .clients-track {
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      animation: scrollClients 20s linear infinite;
+      width: max-content;
+    }
+
+    .clients-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scrollClients {
+      0% {
+        transform: translateX(0)
+      }
+
+      100% {
+        transform: translateX(-50%)
+      }
+    }
+
+    .client-item {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      color: var(--gray-mid);
+      white-space: nowrap;
+      transition: color var(--transition-fast);
+      cursor: default;
+    }
+
+    .client-item:hover {
+      color: var(--black);
+    }
+
+    @media (max-width: 1024px) {
+      .values-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .about-intro {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .about-visual {
+        display: none;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .process-step {
+        grid-template-columns: 50px 1fr;
+        gap: 1.5rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="cursor"></div>
+  <div id="cursor-ring"></div>
+
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo-text">
+      <img src="assets/logo/logo2.png" alt="ZENKAI Logo" style="height: 40px;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="nav-cta" data-modal="audit">FREE AUDIT</a></li>
+    </ul>
+    <div class="hamburger"><span></span><span></span><span></span></div>
+  </nav>
+  <nav class="nav-mobile">
+    <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a>
+    <a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Blog</a><a
+      href="contact.html">Contact</a>
+  </nav>
+
+  <header class="page-hero">
+    <p class="page-hero-label reveal">Our story</p>
+    <h1 class="page-hero-title reveal reveal-delay-1">Why<br>Zenkai</h1>
+    <p class="page-hero-sub reveal reveal-delay-2">We're not a typical agency. We're a team of obsessive marketers who
+      only win when our clients win.</p>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="about-intro">
+        <div class="about-intro-text reveal">
+          <h2>Built for brands that refuse to be average</h2>
+          <p>Zenkai Media was founded on one belief: great marketing isn't about looking good — it's about building
+            brands that last and generating revenue that compounds.</p>
+          <p>We've spent years inside the platforms, inside the data, and inside the creative process, learning exactly
+            what it takes to scale brands that dominate their market. That knowledge is what we bring to every client we
+            work with.</p>
+          <p>We work with startups, e-commerce businesses, and global brands who want one thing: marketing that actually
+            moves the needle. No fluff. No vanity metrics. Just results.</p>
+          <div class="stats-row" style="margin-top:2.5rem;">
+            <div class="stat-item"><span class="stat-number" data-target="247" data-suffix="+">0</span><span
+                class="stat-label">Brands Scaled</span></div>
+            <div class="stat-item"><span class="stat-number" data-target="5" data-suffix=" yrs">0</span><span
+                class="stat-label">Operating</span></div>
+            <div class="stat-item"><span class="stat-number" data-target="18">0</span><span class="stat-label">Team
+                members</span></div>
+          </div>
+        </div>
+        <div class="about-visual reveal reveal-delay-1">
+          <svg viewBox="0 0 500 625" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect fill="#0a0a0a" width="500" height="625" />
+            <text x="250" y="280" font-family="sans-serif" font-size="120" font-weight="900" fill="#111"
+              text-anchor="middle">ZK</text>
+            <text x="250" y="340" font-family="sans-serif" font-size="12" fill="#222" text-anchor="middle"
+              letter-spacing="15">ZENKAI MEDIA</text>
+            <rect x="180" y="370" width="140" height="1" fill="#222" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Values -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label reveal">What drives us</p>
+      <h2 class="section-title reveal reveal-delay-1">Our values</h2>
+      <div class="values-grid">
+        <div class="value-card reveal">
+          <div class="value-icon">◈</div>
+          <div class="value-name">Results First</div>
+          <p class="value-desc">We measure success in revenue, ROAS, and ROI — not followers, reach, or impressions.
+            Every decision we make is anchored in what drives real business growth.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-1">
+          <div class="value-icon">◐</div>
+          <div class="value-name">Creative Precision</div>
+          <p class="value-desc">Data tells us what to do. Creativity tells us how to do it. We balance rigorous
+            analytics with genuine artistic boldness to create campaigns that perform and resonate.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-2">
+          <div class="value-icon">◉</div>
+          <div class="value-name">Full Transparency</div>
+          <p class="value-desc">No black boxes. You get full access to your data, real-time dashboards, and weekly
+            reports that show exactly where every dollar goes and what it produces.</p>
+        </div>
+        <div class="value-card reveal reveal-delay-3">
+          <div class="value-icon">◆</div>
+          <div class="value-name">Long-term Thinking</div>
+          <p class="value-desc">We build brands, not campaigns. Our strategies are designed to compound over time —
+            turning short-term wins into sustainable market leadership.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Team -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label reveal">The people</p>
+      <h2 class="section-title reveal reveal-delay-1">Meet the team</h2>
+      <div class="team-grid">
+        <a href="https://linkedin.com/in/raees-shaikh-5015ab297" target="_blank" class="team-card reveal">
+          <div class="team-card-photo">
+            <img src="assets/members/raees_shaikh.webp" alt="Raees Shaikh">
+          </div>
+          <div class="team-card-info">
+            <div class="team-name">Raees Shaikh</div>
+            <div class="team-role">
+              <span class="role-desktop">Founder | Chief Executive Officer</span>
+              <span class="role-mobile">Founder | Chief Executive Officer</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://linkedin.com/in/chandni-sodha-528746282" target="_blank"
+          class="team-card reveal reveal-delay-1">
+          <div class="team-card-photo">
+            <img src="assets/members/chandni_sodha.webp" alt="Chandni Sodha">
+          </div>
+          <div class="team-card-info">
+            <div class="team-name">Chandni Sodha</div>
+            <div class="team-role">
+              <span class="role-desktop">Co-founder | Chief Technical Officer</span>
+              <span class="role-mobile">Co-founder | Chief Technical Officer</span>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Process -->
+  <section class="section">
+    <div class="container">
+      <p class="section-label reveal">How we work</p>
+      <h2 class="section-title reveal reveal-delay-1">Our process</h2>
+      <div class="process-timeline">
+        <div class="process-step reveal">
+          <div class="process-step-num">01</div>
+          <div class="process-step-content">
+            <div class="process-step-title">Discovery & Audit</div>
+            <p class="process-step-desc">We spend the first week inside your business — your data, your competitors,
+              your customers. We don't guess. We know your market better than most brands know themselves before we
+              write a single brief.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-step-num">02</div>
+          <div class="process-step-content">
+            <div class="process-step-title">Strategy & Planning</div>
+            <p class="process-step-desc">Custom 90-day growth plan. Every channel, every creative format, every audience
+              segment mapped out with projected targets. You know exactly what we're doing and why before we spend a
+              single dollar.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-step-num">03</div>
+          <div class="process-step-content">
+            <div class="process-step-title">Launch & Optimise</div>
+            <p class="process-step-desc">We launch fast, learn faster. Weekly optimisation cycles across creative,
+              audience, and bidding. We kill what doesn't work and double down on what does — relentlessly.</p>
+          </div>
+        </div>
+        <div class="process-step reveal">
+          <div class="process-step-num">04</div>
+          <div class="process-step-content">
+            <div class="process-step-title">Scale & Compound</div>
+            <p class="process-step-desc">Once the formula is proven, we scale aggressively. Budget increases, new
+              markets, new platforms — turning your marketing into a compounding growth engine that gets stronger every
+              month.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients carousel -->
+  <section style="padding: 4rem 0; border-top: 1px solid var(--gray-mid); overflow:hidden;">
+    <div class="clients-carousel">
+      <div class="clients-track">
+        <span class="client-item">LUXEAPPAREL</span>
+        <span class="client-item">·</span>
+        <span class="client-item">NOVATECH</span>
+        <span class="client-item">·</span>
+        <span class="client-item">PEAKFIT</span>
+        <span class="client-item">·</span>
+        <span class="client-item">ARKOFOODS</span>
+        <span class="client-item">·</span>
+        <span class="client-item">VERTO</span>
+        <span class="client-item">·</span>
+        <span class="client-item">CLARASKIN</span>
+        <span class="client-item">·</span>
+        <span class="client-item">ORIONSTUDIO</span>
+        <span class="client-item">·</span>
+        <span class="client-item">MODO</span>
+        <span class="client-item">·</span>
+        <!-- duplicate for seamless loop -->
+        <span class="client-item">LUXEAPPAREL</span>
+        <span class="client-item">·</span>
+        <span class="client-item">NOVATECH</span>
+        <span class="client-item">·</span>
+        <span class="client-item">PEAKFIT</span>
+        <span class="client-item">·</span>
+        <span class="client-item">ARKOFOODS</span>
+        <span class="client-item">·</span>
+        <span class="client-item">VERTO</span>
+        <span class="client-item">·</span>
+        <span class="client-item">CLARASKIN</span>
+        <span class="client-item">·</span>
+        <span class="client-item">ORIONSTUDIO</span>
+        <span class="client-item">·</span>
+        <span class="client-item">MODO</span>
+        <span class="client-item">·</span>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+  <a href="https://wa.me/919016792014" target="_blank" class="whatsapp-sticky" aria-label="WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+  <div class="modal-overlay" id="auditModal">
+    <div class="modal"><button class="modal-close">✕</button>
+      <h2 class="modal-title">Free Brand Audit</h2>
+      <p class="modal-sub">30 minutes. Zero cost. Maximum value.</p>
+      <form onsubmit="handleSimpleAudit(event)">
+        <input type="text" id="simpleAuditName" class="form-input" placeholder="Your Name *" required />
+        <input type="email" id="simpleAuditEmail" class="form-input" placeholder="Business Email *" required />
+        <input type="tel" id="simpleAuditPhone" class="form-input" placeholder="Phone / WhatsApp (optional)">
+        <button type="submit" class="btn-primary" style="width:100%;">CLAIM YOUR FREE AUDIT</button>
+      </form>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+
+</html>

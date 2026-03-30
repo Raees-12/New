@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="icon" type="image/x-icon" href="assets/logo/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/logo/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/logo/android-chrome-512x512.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zenkai Media | Premium Marketing Agency for Global Brands</title>
+  <meta name="description"
+    content="Zenkai Media is a premium marketing agency specialising in social media ads, content creation, and branding for startups, e-commerce, and big brands worldwide." />
+  <meta property="og:title" content="Zenkai Media | Premium Marketing Agency" />
+  <meta property="og:description"
+    content="We make brands impossible to ignore. 500M+ impressions, 247+ brands, 300% average ROI." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#000000">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"Zenkai Media","url":"https://zenkaimedia.in","email":"workwithzenkai@gmail.com","telephone":"+919016792014","description":"Premium marketing agency for brands worldwide","sameAs":["https://www.instagram.com/zenkaimedia.in","https://www.linkedin.com/company/zenkaimedia","https://x.com/ZenkaiMedia","https://www.facebook.com/zenkaimedia.in","https://www.threads.com/@zenkaimedia.in"]}
+  </script>
+  <style>
+    .home-portfolio {
+      padding: 8rem 4rem;
+      background: #f8f8f8;
+    }
+
+    .home-portfolio-header {
+      margin-bottom: 3rem;
+    }
+
+    .home-portfolio-header h2 {
+      font-size: 3rem;
+      font-weight: 900;
+    }
+
+    .home-portfolio-header p {
+      color: #777;
+    }
+
+    .home-portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .hp-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .hp-card img,
+    .hp-card video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .hp-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: 0.4s ease;
+    }
+
+    .hp-overlay span {
+      color: white;
+      font-weight: 600;
+    }
+
+    .hp-card:hover img,
+    .hp-card:hover video {
+      transform: scale(1.1);
+    }
+
+    .hp-card:hover .hp-overlay {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .home-portfolio {
+        padding: 4rem 1.5rem;
+      }
+
+      .home-portfolio-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ---- Homepage Hero ---- */
+    #hero {
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--gray-mid);
+      box-sizing: border-box;
+    }
+
+    .hero-bg-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(6rem, 14vw, 18rem);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(0, 0, 0, 0.05);
+      white-space: nowrap;
+      letter-spacing: -0.03em;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .hero-h1 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(3.5rem, 9.5vw, 10rem);
+      line-height: 0.92;
+      letter-spacing: -0.04em;
+      overflow: visible;
+      margin: auto 0 2rem 0;
+    }
+
+    .hero-we-build {
+      display: block;
+      font-size: 0.5em;
+      color: #aaa;
+      letter-spacing: -0.02em;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+      margin-bottom: 0.1em;
+    }
+
+    .hero-we-build.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-cycler-wrap {
+      display: block;
+      overflow: hidden;
+      height: 1.08em;
+      position: relative;
+    }
+
+    .hero-cycler-wrap .cword {
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: var(--black);
+      will-change: transform, opacity;
+    }
+
+    .cword.state-below {
+      transform: translateY(110%);
+      opacity: 0;
+    }
+
+    .cword.state-active {
+      transform: translateY(0);
+      opacity: 1;
+      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.4s ease;
+    }
+
+    .cword.state-above {
+      transform: translateY(-110%);
+      opacity: 0;
+      transition: transform 0.45s cubic-bezier(0.55, 0, 1, 0.45), opacity 0.3s ease;
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.6vw, 1.3rem);
+      color: var(--gray-dark);
+      max-width: 560px;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease 0.2s, transform 0.5s ease 0.2s;
+    }
+
+    .hero-sub.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease 0.35s, transform 0.5s ease 0.35s;
+    }
+
+    .hero-bottom.animate {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .hero-stats,
+    .stats-row {
+      display: flex;
+      gap: 3rem;
+      align-items: flex-start;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .stat-number {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    /* ---- Services Teaser ---- */
+    .services-teaser {
+      padding: 8rem 4rem;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 4rem;
+    }
+
+    .service-card {
+      padding: 4rem 3rem;
+      border: 1px solid var(--gray-mid);
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition);
+      text-decoration: none;
+      color: var(--black);
+      display: block;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 0;
+      background: var(--black);
+      transition: height var(--transition);
+      z-index: 0;
+    }
+
+    .service-card:hover::before {
+      height: 100%;
+    }
+
+    .service-card * {
+      position: relative;
+      z-index: 1;
+      transition: color var(--transition);
+    }
+
+    .service-card:hover * {
+      color: var(--white);
+    }
+
+    .service-num {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 5rem;
+      color: var(--gray-light);
+      line-height: 1;
+      margin-bottom: 2rem;
+    }
+
+    .service-name {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-desc {
+      color: var(--gray-dark);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .service-arrow {
+      font-size: 1.5rem;
+    }
+
+    /* ---- Portfolio Slider ---- */
+    .portfolio-section {
+      padding: 8rem 4rem;
+      background: var(--gray-light);
+    }
+
+    .portfolio-slider {
+      overflow: hidden;
+      margin-top: 4rem;
+    }
+
+    .portfolio-track {
+      display: flex;
+      gap: 2px;
+      transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .portfolio-slide {
+      flex: 0 0 calc(50% - 1px);
+      position: relative;
+      overflow: hidden;
+      background: var(--gray-mid);
+      aspect-ratio: 4/3;
+    }
+
+    .portfolio-slide-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.5rem;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .portfolio-slide:hover .portfolio-slide-inner {
+      opacity: 1;
+    }
+
+    .portfolio-slide-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s ease;
+    }
+
+    .portfolio-slide:hover .portfolio-slide-bg {
+      transform: scale(1.05);
+    }
+
+    .portfolio-slide-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.4rem;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+    }
+
+    .portfolio-track {
+      touch-action: pan-y;
+    }
+
+    .portfolio-slide-tag {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-controls {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      justify-content: flex-end;
+    }
+
+    .portfolio-btn {
+      width: 56px;
+      height: 56px;
+      border: 1.5px solid var(--black);
+      background: transparent;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background var(--transition-fast), color var(--transition-fast);
+    }
+
+    .portfolio-btn:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* ---- Trust Section ---- */
+    .trust-section {
+      padding: 6rem 4rem;
+      border-top: 1px solid var(--gray-mid);
+    }
+
+    .trust-logos {
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+      justify-content: center;
+    }
+
+    .trust-logo {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      color: var(--gray-mid);
+      transition: color var(--transition-fast);
+      cursor: default;
+    }
+
+    .trust-logo:hover {
+      color: var(--black);
+    }
+
+    .featured-in {
+      text-align: center;
+      margin-top: 3rem;
+      color: var(--gray-dark);
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .featured-in span {
+      font-weight: 700;
+      color: var(--black);
+    }
+
+    @media (max-width: 768px) {
+      #hero {
+        padding: 90px 1.5rem 3rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portfolio-slide {
+        flex: 0 0 85%;
+      }
+
+      .services-teaser,
+      .portfolio-section,
+      .trust-section {
+        padding: 5rem 1.5rem;
+      }
+    }
+
+    .clients-carousel {
+      overflow: hidden;
+      margin-top: 3rem;
+    }
+
+    .clients-track {
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      width: max-content;
+      animation: scrollClients 20s linear infinite;
+    }
+
+    .clients-track:hover {
+      animation-play-state: paused;
+    }
+
+    @keyframes scrollClients {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .client-item {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      color: var(--gray-mid);
+      white-space: nowrap;
+      transition: color var(--transition-fast);
+    }
+
+    .client-item:hover {
+      color: var(--black);
+    }
+
+    /* white premium version but bold */
+
+    .cta-section.alt {
+      padding: 6rem 1.5rem;
+      text-align: center;
+      background: #fff;
+      border-top: 1px solid var(--gray-mid);
+    }
+
+    /* keep your typography system */
+    .cta-section.alt .cta-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--gray-dark);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section.alt .cta-title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 2.4rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 2rem;
+    }
+
+    /* button */
+    .cta-section.alt .btn-primary {
+      width: 100%;
+      padding: 1rem;
+    }
+
+    /* desktop */
+    @media (min-width: 768px) {
+
+      .cta-section.alt {
+        padding: 8rem 4rem;
+      }
+
+      .cta-section.alt .cta-title {
+        font-size: clamp(3rem, 6vw, 6rem);
+      }
+
+      .cta-section.alt .btn-primary {
+        width: auto;
+        padding: 1rem 2rem;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo-text">
+      <img src="assets/logo/logo2.png" alt="ZENKAI Logo" style="height: 40px;">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="case-studies.html">Case Studies</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="#" class="nav-cta" data-modal="audit">FREE AUDIT</a></li>
+    </ul>
+    <div class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <nav class="nav-mobile">
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-text" aria-hidden="true">ZK</div>
+    <div class="hero-content">
+      <h1 class="hero-h1">
+        <span class="hero-we-build" id="heroWeBuild">We Build</span>
+        <span class="hero-cycler-wrap" id="heroCyclerWrap"></span>
+      </h1>
+      <p class="hero-sub">We make brands impossible to ignore. From social ads to full brand systems — we build
+        marketing that converts at scale.</p>
+      <div class="hero-bottom">
+        <div class="stats-row">
+          <div class="stat-item">
+            <span class="stat-number" data-target="500" data-suffix="M+">0</span>
+            <span class="stat-label">Impressions</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="247" data-suffix="+">0</span>
+            <span class="stat-label">Brands Scaled</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-target="300" data-suffix="%">0</span>
+            <span class="stat-label">Average ROI</span>
+          </div>
+        </div>
+        <div class="hero-ctas">
+          <button class="btn-primary" data-modal="audit">GET FREE AUDIT</button>
+          <a href="portfolio.html" class="btn-outline">VIEW WORK</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Teaser -->
+  <section class="services-teaser">
+    <div class="container">
+      <p class="section-label reveal">What We Do</p>
+      <h2 class="section-title reveal reveal-delay-1">Three ways<br>we scale you</h2>
+      <div class="services-grid">
+        <a href="services.html#ads" class="service-card reveal">
+          <div class="service-num">01</div>
+          <div class="service-name">SOCIAL ADS</div>
+          <p class="service-desc">Meta, TikTok, Google — performance campaigns that cut through noise and drive real
+            revenue.</p>
+          <div class="service-arrow">→</div>
+        </a>
+        <a href="services.html#content" class="service-card reveal reveal-delay-1">
+          <div class="service-num">02</div>
+          <div class="service-name">CONTENT</div>
+          <p class="service-desc">Scroll-stopping visuals, video, and copy that turn your brand into a content machine.
+          </p>
+          <div class="service-arrow">→</div>
+        </a>
+        <a href="services.html#branding" class="service-card reveal reveal-delay-2">
+          <div class="service-num">03</div>
+          <div class="service-name">BRANDING</div>
+          <p class="service-desc">Identity systems built for ambition — logos, guidelines, and positioning that commands
+            attention.</p>
+          <div class="service-arrow">→</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- Portfolio Slider -->
+
+  <section class="home-portfolio">
+    <div class="container">
+
+      <div class="home-portfolio-header">
+        <p class="section-label">Portfolio</p>
+
+        <h2 class="section-title">
+          Work that<br>drives results.
+        </h2>
+
+        <p class="section-sub">
+          Real campaigns. Real growth. Built to scale brands globally.
+        </p>
+      </div>
+
+      <div class="home-portfolio-grid">
+
+        <a href="portfolio.html" class="hp-card">
+          <video src="assets/portfolio/videography/videography-3.mp4" autoplay muted loop playsinline></video>
+          <div class="hp-overlay">
+            <span>View Portfolio →</span>
+          </div>
+        </a>
+
+        <a href="portfolio.html" class="hp-card">
+          <video src="assets/portfolio/videography/videography-1.mp4" autoplay muted loop playsinline></video>
+          <div class="hp-overlay">
+            <span>View Portfolio →</span>
+          </div>
+        </a>
+
+        <a href="portfolio.html" class="hp-card">
+          <img src="assets/portfolio/photoshoots/photoshoots-2.webp" alt="">
+          <div class="hp-overlay">
+            <span>View Portfolio →</span>
+          </div>
+        </a>
+
+        <a href="portfolio.html" class="hp-card">
+          <img src="assets/portfolio/photoshoots/photoshoots-3.webp" alt="">
+          <div class="hp-overlay">
+            <span>View Portfolio →</span>
+          </div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+  <!-- Trust Section -->
+  <section class="trust-section">
+    <div class="container">
+      <p class="section-label reveal" style="text-align:center;">Trusted by category leaders</p>
+      <div class="clients-carousel reveal reveal-delay-1">
+        <div class="clients-track">
+
+          <span class="client-item">LUXEAPPAREL</span>
+          <span class="client-item">·</span>
+          <span class="client-item">NOVATECH</span>
+          <span class="client-item">·</span>
+          <span class="client-item">ARKOFOODS</span>
+          <span class="client-item">·</span>
+          <span class="client-item">FI9E BEAUTY</span>
+          <span class="client-item">·</span>
+          <span class="client-item">PEAKFIT</span>
+          <span class="client-item">·</span>
+          <span class="client-item">SELFMAN</span>
+          <span class="client-item">·</span>
+
+          <!-- duplicate for smooth loop -->
+          <span class="client-item">LUXEAPPAREL</span>
+          <span class="client-item">·</span>
+          <span class="client-item">NOVATECH</span>
+          <span class="client-item">·</span>
+          <span class="client-item">ARKOFOODS</span>
+          <span class="client-item">·</span>
+          <span class="client-item">FI9E BEAUTY</span>
+          <span class="client-item">·</span>
+          <span class="client-item">PEAKFIT</span>
+          <span class="client-item">·</span>
+          <span class="client-item">SELFMAN</span>
+          <span class="client-item">·</span>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section alt">
+
+    <p class="cta-label">Ready to scale?</p>
+
+    <h2 class="cta-title">
+      Your brand.<br>Impossible to ignore.
+    </h2>
+
+    <div class="cta-buttons">
+      <button class="btn-primary" data-modal="audit">
+        GET YOUR FREE AUDIT
+      </button>
+    </div>
+
+  </section>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <!-- WhatsApp Sticky -->
+  <a href="https://wa.me/919016792014" target="_blank" class="whatsapp-sticky" aria-label="WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    </svg>
+  </a>
+
+  <!-- Audit Modal -->
+  <div class="modal-overlay" id="auditModal">
+    <div class="modal">
+      <button class="modal-close" aria-label="Close">✕</button>
+      <h2 class="modal-title">Free Brand Audit</h2>
+      <p class="modal-sub">Get a 30-minute audit of your marketing strategy — on us. No strings attached.</p>
+      <form onsubmit="handleAuditSubmit(event)">
+        <input type="text" id="auditName" class="form-input" placeholder="Your Name *" required />
+        <input type="email" id="auditEmail" class="form-input" placeholder="Business Email *" required />
+        <input type="text" id="auditCompany" class="form-input" placeholder="Company / Brand Name *" required />
+        <input type="tel" id="auditPhone" class="form-input" placeholder="Phone / WhatsApp (optional)">
+        <select id="auditBudget" class="form-input">
+          <option value="">Monthly Ad Budget</option>
+          <option value="Under $5,000">Under $5,000</option>
+          <option value="$5,000 – $20,000">$5,000 – $20,000</option>
+          <option value="$20,000 – $100,000">$20,000 – $100,000</option>
+          <option value="$100,000+">$100,000+</option>
+        </select>
+        <button type="submit" class="btn-primary" style="width:100%;">CLAIM YOUR FREE AUDIT</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    (function () {
+      var WORDS = ['Creativity.', 'Strategy.', 'Content.', 'Performance.', 'Branding.', 'Growth.', 'Results.', 'Conversions.'];
+      var INTERVAL = 2500;
+      var EXIT_MS = 420;
+
+      var wrap = document.getElementById('heroCyclerWrap');
+      var weBuild = document.getElementById('heroWeBuild');
+      var activeIdx = 0;
+      var animating = false;
+
+      var spans = WORDS.map(function (w) {
+        var s = document.createElement('span');
+        s.className = 'cword state-below';
+        s.textContent = w;
+        wrap.appendChild(s);
+        return s;
+      });
+
+      function showFirst() { spans[0].className = 'cword state-active'; }
+
+      function advance() {
+        if (animating) return;
+        animating = true;
+        var current = spans[activeIdx];
+        activeIdx = (activeIdx + 1) % WORDS.length;
+        var next = spans[activeIdx];
+        next.style.transition = 'none';
+        next.className = 'cword state-below';
+        next.getBoundingClientRect();
+        next.style.transition = '';
+        current.className = 'cword state-above';
+        setTimeout(function () {
+          next.className = 'cword state-active';
+          setTimeout(function () {
+            current.style.transition = 'none';
+            current.className = 'cword state-below';
+            current.getBoundingClientRect();
+            current.style.transition = '';
+            animating = false;
+          }, 700);
+        }, EXIT_MS);
+      }
+
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          weBuild.classList.add('show');
+          showFirst();
+          setTimeout(function () { document.querySelector('.hero-sub') && document.querySelector('.hero-sub').classList.add('animate'); }, 200);
+          setTimeout(function () { document.querySelector('.hero-bottom') && document.querySelector('.hero-bottom').classList.add('animate'); }, 350);
+          setTimeout(function () { setInterval(advance, INTERVAL); }, INTERVAL);
+        }, 100);
+      });
+
+      var track = document.getElementById('portfolioTrack');
+      var slides = track ? track.querySelectorAll('.portfolio-slide') : [];
+      var current = 0;
+      function getVisible() { return window.innerWidth < 768 ? 1 : 2; }
+      function updateSlider() {
+        if (!track || !slides.length) return;
+        var slideWidth = slides[0].offsetWidth + 2;
+        var maxIdx = slides.length - getVisible();
+        current = Math.min(current, maxIdx);
+        track.style.transform = 'translateX(-' + (current * slideWidth) + 'px)';
+      }
+      var nextBtn = document.getElementById('nextBtn');
+      var prevBtn = document.getElementById('prevBtn');
+      if (nextBtn) nextBtn.addEventListener('click', function () {
+        var max = slides.length - getVisible();
+        current = current < max ? current + 1 : 0;
+        updateSlider();
+      });
+      if (prevBtn) prevBtn.addEventListener('click', function () {
+        var max = slides.length - getVisible();
+        current = current > 0 ? current - 1 : max;
+        updateSlider();
+      });
+      window.addEventListener('resize', updateSlider);
+
+      // 👇 PASTE HERE
+      let startX = 0;
+      let endX = 0;
+
+      if (track) {
+        track.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+        });
+
+        track.addEventListener('touchmove', (e) => {
+          endX = e.touches[0].clientX;
+        });
+
+        track.addEventListener('touchend', () => {
+          let diff = startX - endX;
+
+          if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+              nextBtn.click(); // swipe left
+            } else {
+              prevBtn.click(); // swipe right
+            }
+          }
+        });
+      }
+    }());
+
+
+
+  </script>
+</body>
+
+</html>

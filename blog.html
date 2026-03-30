@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/x-icon" href="assets/logo/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/logo/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/logo/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/logo/android-chrome-512x512.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zenkai Media | Blog — Marketing Insights for Ambitious Brands</title>
+  <meta name="description" content="Marketing strategy, growth tactics, and brand building insights from the Zenkai Media team — written for founders and marketers who want to scale." />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .blog-featured {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      border: 1px solid var(--gray-mid); margin-bottom: 4rem;
+    }
+    .blog-featured-visual { background: var(--black); min-height: 500px; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+    .blog-featured-content { padding: 4rem; display: flex; flex-direction: column; justify-content: center; }
+    .blog-cat { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gray-dark); margin-bottom: 1rem; }
+    .blog-title { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.5rem, 3vw, 2.5rem); line-height: 1.1; margin-bottom: 1.25rem; text-decoration: none; color: var(--black); display: block; transition: opacity var(--transition-fast); }
+    .blog-title:hover { opacity: 0.6; }
+    .blog-excerpt { color: var(--gray-dark); line-height: 1.8; font-size: 0.95rem; margin-bottom: 2rem; }
+    .blog-meta { display: flex; align-items: center; gap: 1.5rem; font-size: 0.8rem; color: var(--gray-dark); }
+    .blog-author-dot { width: 8px; height: 8px; background: var(--black); border-radius: 50%; display: inline-block; }
+
+    .cat-btn { padding: 1rem 1.5rem; background: transparent; border: none; cursor: pointer; font-family: var(--font-body); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-dark); border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color var(--transition-fast), border-color var(--transition-fast); }
+    .cat-btn.active { color: var(--black); border-bottom-color: var(--black); }
+
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .blog-card { border: 1px solid var(--gray-mid); overflow: hidden; transition: border-color var(--transition), transform var(--transition); }
+    .blog-card:hover { border-color: var(--black); transform: translateY(-4px); }
+    .blog-card-thumb { height: 200px; background: var(--gray-light); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .blog-card-body { padding: 2rem; }
+    .blog-card-cat { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gray-dark); margin-bottom: 0.75rem; }
+    .blog-card-title { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; line-height: 1.3; margin-bottom: 0.75rem; text-decoration: none; color: var(--black); display: block; transition: opacity var(--transition-fast); }
+    .blog-card-title:hover { opacity: 0.6; }
+    .blog-card-meta { font-size: 0.78rem; color: var(--gray-dark); margin-top: 1rem; }
+
+    .subscribe-band { background: var(--black); color: var(--white); padding: 6rem 4rem; }
+    .subscribe-inner { max-width: 560px; }
+    .sub-form { display: flex; gap: 0; margin-top: 2rem; }
+    .sub-input { flex: 1; padding: 1rem 1.25rem; border: 1.5px solid rgba(255,255,255,0.2); background: transparent; color: var(--white); font-family: var(--font-body); font-size: 0.95rem; outline: none; }
+    .sub-input::placeholder { color: rgba(255,255,255,0.4); }
+    .sub-input:focus { border-color: var(--white); }
+    .sub-btn { padding: 1rem 2rem; background: var(--white); color: var(--black); font-family: var(--font-body); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; border: none; cursor: pointer; transition: opacity var(--transition-fast); }
+    .sub-btn:hover { opacity: 0.8; }
+
+    @media (max-width: 768px) {
+      .blog-featured { grid-template-columns: 1fr; }
+      .blog-featured-visual { min-height: 250px; }
+      .blog-featured-content { padding: 2rem; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .subscribe-band { padding: 4rem 1.5rem; }
+      .sub-form { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="cursor"></div><div id="cursor-ring"></div>
+
+<nav id="navbar">
+  <a href="index.html" class="nav-logo-text">
+    <img src="assets/logo/logo2.png" alt="ZENKAI Logo" style="height: 40px;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li><li><a href="services.html">Services</a></li>
+    <li><a href="portfolio.html">Portfolio</a></li><li><a href="case-studies.html">Case Studies</a></li>
+    <li><a href="about.html">About</a></li><li><a href="blog.html">Blog</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="#" class="nav-cta" data-modal="audit">FREE AUDIT</a></li>
+  </ul>
+  <div class="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<nav class="nav-mobile">
+  <a href="index.html">Home</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a>
+  <a href="case-studies.html">Case Studies</a><a href="about.html">About</a><a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+</nav>
+
+<header class="page-hero">
+  <p class="page-hero-label reveal">Insights</p>
+  <h1 class="page-hero-title reveal reveal-delay-1">The Zenkai<br>Journal</h1>
+  <p class="page-hero-sub reveal reveal-delay-2">Marketing strategy, brand building, and growth tactics for ambitious companies.</p>
+</header>
+
+<section class="section">
+  <div class="container">
+
+    <!-- Featured Post -->
+    <div class="blog-featured reveal">
+      <div class="blog-featured-visual">
+        <svg viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+          <rect fill="#0a0a0a" width="600" height="500"/>
+          <text x="300" y="220" font-family="sans-serif" font-size="100" font-weight="900" fill="#111" text-anchor="middle">8x</text>
+          <text x="300" y="270" font-family="sans-serif" font-size="14" fill="#1e1e1e" text-anchor="middle" letter-spacing="6">ROAS</text>
+          <rect x="200" y="300" width="200" height="1" fill="#1a1a1a"/>
+          <text x="300" y="330" font-family="sans-serif" font-size="10" fill="#222" text-anchor="middle" letter-spacing="4">META ADS 2025</text>
+        </svg>
+      </div>
+      <div class="blog-featured-content">
+        <div class="blog-cat">Performance · Featured</div>
+        <a href="blog/8x-roas-meta-2025.html" class="blog-title">How we hit 8x ROAS on Meta in 2025: The exact framework we use for every client</a>
+        <p class="blog-excerpt">Most agencies chase the cheapest CPMs. We chase the highest-quality audiences. Here's the framework we've refined over 3 years and $40M+ in ad spend — and why it consistently outperforms every other approach we've tested.</p>
+        <div class="blog-meta">
+          <span class="blog-author-dot"></span>
+          <span>Alex Reiner</span>
+          <span>·</span>
+          <span>March 12, 2025</span>
+          <span>·</span>
+          <span>8 min read</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Blog Grid -->
+    <div class="blog-grid">
+
+      <div class="blog-card reveal">
+        <div class="blog-card-thumb">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect fill="#111" width="400" height="200"/>
+            <text x="200" y="115" font-family="sans-serif" font-size="60" font-weight="900" fill="#1e1e1e" text-anchor="middle">TK</text>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">Content · TikTok</div>
+          <a href="blog/tiktok-content-formula-50m-views.html" class="blog-card-title">The TikTok content formula that generated 50M organic views for our client</a>
+          <p style="color:var(--gray-dark); font-size:0.88rem; line-height:1.7;">Hook, build, convert. We break down the three-part structure behind every high-performing TikTok video we've produced.</p>
+          <div class="blog-card-meta">Maya Osei · Feb 28, 2025 · 5 min read</div>
+        </div>
+      </div>
+
+      <div class="blog-card reveal reveal-delay-1">
+        <div class="blog-card-thumb">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect fill="#f5f5f5" width="400" height="200"/>
+            <text x="200" y="115" font-family="sans-serif" font-size="50" font-weight="900" fill="#e0e0e0" text-anchor="middle">BRAND</text>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">Branding · Strategy</div>
+          <a href="blog/brand-identity-fails-2-years.html" class="blog-card-title">Why most brand identities fail within 2 years — and what to do differently</a>
+          <p style="color:var(--gray-dark); font-size:0.88rem; line-height:1.7;">A brand identity that looks great but isn't rooted in strategy is just expensive decoration. Here's how to build one that lasts.</p>
+          <div class="blog-card-meta">Jordan Vance · Feb 14, 2025 · 7 min read</div>
+        </div>
+      </div>
+
+      <div class="blog-card reveal reveal-delay-2">
+        <div class="blog-card-thumb">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect fill="#0d0d0d" width="400" height="200"/>
+            <line x1="0" y1="100" x2="400" y2="100" stroke="#1a1a1a" stroke-width="1"/>
+            <text x="200" y="88" font-family="sans-serif" font-size="40" font-weight="900" fill="#1e1e1e" text-anchor="middle">CRO</text>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">E-Commerce · CRO</div>
+          <a href="blog/landing-page-changes-doubled-conversion.html" class="blog-card-title">12 landing page changes that doubled our client's conversion rate in 30 days</a>
+          <p style="color:var(--gray-dark); font-size:0.88rem; line-height:1.7;">You can have the best ads in the world, but if your landing page converts at 1%, you're throwing money away. Here's what we changed.</p>
+          <div class="blog-card-meta">Priya Sharma · Jan 30, 2025 · 6 min read</div>
+        </div>
+      </div>
+
+      <div class="blog-card reveal">
+        <div class="blog-card-thumb">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect fill="#111" width="400" height="200"/>
+            <text x="200" y="110" font-family="sans-serif" font-size="44" font-weight="900" fill="#1e1e1e" text-anchor="middle">EMAIL</text>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">Strategy · Email</div>
+          <a href="blog/email-marketing-playbook.html" class="blog-card-title">The email marketing playbook: How to turn your list into your most profitable channel</a>
+          <p style="color:var(--gray-dark); font-size:0.88rem; line-height:1.7;">Email still delivers the highest ROI of any marketing channel. Here's the exact flow structure that drives 35% of revenue for our top e-commerce clients.</p>
+          <div class="blog-card-meta">Alex Reiner · Jan 15, 2025 · 9 min read</div>
+        </div>
+      </div>
+
+      <div class="blog-card reveal reveal-delay-1">
+        <div class="blog-card-thumb">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect fill="#f0f0f0" width="400" height="200"/>
+            <text x="200" y="110" font-family="sans-serif" font-size="44" font-weight="900" fill="#ddd" text-anchor="middle">UGC</text>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">Content · UGC</div>
+          <a href="blog/ugc-ads-outperform-polished-creative.html" class="blog-card-title">UGC ads in 2025: Why they still outperform polished creative by 3x</a>
+          <p style="color:var(--gray-dark); font-size:0.88rem; line-height:1.7;">People don't trust ads. They trust people. Here's how to build a UGC system that consistently produces your best-performing creative.</p>
+          <div class="blog-card-meta">Maya Osei · Jan 5, 2025 · 5 min read</div>
+        </div>
+      </div>
+
+      <div class="blog-card reveal reveal-delay-2">
+        <div class="blog-card-thumb">
+          <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:100%;">
+            <rect fill="#141414" width="400" height="200"/>
+            <text x="200" y="105" font-family="sans-serif" font-size="36" font-weight="900" fill="#222" text-anchor="middle">BUDGET</text>
+            <text x="200" y="142" font-family="sans-serif" font-size="28" font-weight="900" fill="#1a1a1a" text-anchor="middle">SCALING</text>
+          </svg>
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-cat">Performance · Budgeting</div>
+          <a href="blog/when-how-scale-ad-budget.html" class="blog-card-title">When and how to scale your ad budget: The framework we use for every client</a>
+          <p style="color:var(--gray-dark); font-size:0.88rem; line-height:1.7;">Scaling too early kills ROAS. Scaling too late leaves money on the table. Here's the exact data signals we look for before increasing spend.</p>
+          <div class="blog-card-meta">Priya Sharma · Dec 20, 2024 · 7 min read</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Subscribe -->
+<section class="subscribe-band">
+  <div class="subscribe-inner">
+    <p style="font-size:0.75rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin-bottom:1rem;">Stay sharp</p>
+    <h2 style="font-family:var(--font-display); font-weight:900; font-size:clamp(2rem,4vw,3rem); line-height:1.05; margin-bottom:0.75rem;">Marketing insights,<br>straight to your inbox</h2>
+    <p style="color:rgba(255,255,255,0.5); font-size:0.95rem; line-height:1.7; margin-bottom:0;">One email per week. No fluff. Just the tactics and frameworks that are working right now.</p>
+    <form class="sub-form newsletter-form">
+      <input type="email" class="sub-input" placeholder="your@email.com" required />
+      <button type="submit" class="sub-btn">SUBSCRIBE</button>
+    </form>
+  </div>
+</section>
+
+<div id="footer"></div>
+<a href="https://wa.me/919016792014" target="_blank" class="whatsapp-sticky" aria-label="WhatsApp">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<div class="modal-overlay" id="auditModal">
+  <div class="modal"><button class="modal-close">✕</button>
+    <h2 class="modal-title">Free Brand Audit</h2><p class="modal-sub">30 minutes. Zero cost. Maximum value.</p>
+    <form onsubmit="handleSimpleAudit(event)">
+      <input type="text" id="simpleAuditName" class="form-input" placeholder="Your Name *" required />
+      <input type="email" id="simpleAuditEmail" class="form-input" placeholder="Business Email *" required />
+      <input type="tel" id="auditPhone" class="form-input" placeholder="Phone / WhatsApp (optional)">
+      <button type="submit" class="btn-primary" style="width:100%;">CLAIM YOUR FREE AUDIT</button>
+    </form>
+  </div>
+</div>
+<script src="script.js"></script>
+<script>
+  const catBtns = document.querySelectorAll('.cat-btn');
+  catBtns.forEach(btn => { btn.addEventListener('click', () => { catBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active'); }); });
+</script>
+</body>
+</html>
